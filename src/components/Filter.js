@@ -3,6 +3,7 @@ import { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import Countries from "./Countries";
 
+
 function Filter({ country }) {
   const [value, setValue] = useState("");
 
@@ -15,7 +16,7 @@ function Filter({ country }) {
     <>
       <section className="mx-5 text-white">
         <form
-          className="bg-white dark:bg-light-grey dark:text-white flex items-center w-full b p-5 rounded mt-5"
+          className=" shadow-xl bg-white dark:bg-light-grey dark:text-white flex items-center w-full b p-5 rounded mt-5"
         >
           <AiOutlineSearch className="dark:text-white text-black"/>
           <input
@@ -23,12 +24,12 @@ function Filter({ country }) {
             name="search"
             onChange={handleChange}
             value={value}
-            className="p-2 ml-5 bg-transparent"
+            className="text-black p-2 ml-5 bg-transparent"
             placeholder="Search for country ..."
           />
         </form>
 
-        <div className="bg-white dark:bg-light-grey dark:text-white mt-8 w-1/2 p-5 rounded">
+        <div className="shadow-xl bg-white dark:bg-light-grey dark:text-white mt-8 w-1/2 p-5 rounded">
           <select className="bg-transparent dark:text-white text-black">
             <option value="Filter by region"> Filter by region </option>
             <option value="Africa"> Africa </option>

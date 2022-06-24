@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-
+import { Link, Outlet } from "react-router-dom";
+import Filter from "./Filter";
+// import CountryInfo from "./CountryInfo";
 
 const url = "https://restcountries.com/v3.1/all";
 
@@ -28,14 +30,17 @@ function Countries({ input }) {
 
   return (
     <>
-
+    {/* <Filter /> */}
+    
       <section className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
         {filteredData.map((c, index) => {
           const { name, flags, population, region, capital } = c;
 
           return (
-            <article id="country" className="px-8" key={index}>
-              <div className="my-20 bg-light-grey text-white font-thin rounded">
+              <Link to={`/${name.common}`}key={name.common}>
+
+              <article id="country" className="px-8  " key={index}>
+              <div className="bg-white dark:bg-light-grey dark:text-white shadow-2xl my-20   font-thin rounded">
                 <img
                   className="rounded-t-lg"
                   src={flags.svg}
@@ -56,8 +61,13 @@ function Countries({ input }) {
                 </div>
               </div>
             </article>
+              </Link>
+
           );
         })}
+        <Outlet/>
+       
+      
       </section>
     </>
   );
